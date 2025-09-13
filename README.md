@@ -57,7 +57,5 @@ El sistema se fragmentó empleando la estrategia de *divide y vencerás*, identi
   ventas.html
 /system
   main.html
-/dbase
-  README.md
 /index.html
 ```
