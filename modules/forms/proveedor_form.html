@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Formulario — Proveedores</title>
+  <style>
+    body { font-family: system-ui, Arial, sans-serif; max-width: 980px; margin: 24px auto; padding: 0 16px; }
+    fieldset { border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 18px; }
+    legend { font-weight: 600; }
+    .grid { display: grid; gap: 12px; }
+    .g2 { grid-template-columns: repeat(2, minmax(0,1fr)); }
+    .g3 { grid-template-columns: repeat(3, minmax(0,1fr)); }
+    label { display: block; font-size: 0.92rem; margin-bottom: 4px; }
+    input, select, textarea { width: 100%; padding: 8px; border: 1px solid #bbb; border-radius: 6px; }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { border: 1px solid #e5e5e5; padding: 8px; text-align: left; }
+    tfoot td { border: none; }
+    .actions { display: flex; gap: 12px; }
+    button { padding: 8px 12px; border: 1px solid #999; border-radius: 6px; background: #f5f5f5; cursor: pointer; }
+    button.primary { background: #0ea5e9; color: white; border-color: #0ea5e9; }
+    .muted { color:#666; font-size:.9rem; }
+    .req::after { content:" *"; color:#d00; }
+    #out { white-space: pre-wrap; background:#0b1020; color:#d9ffe7; padding:12px; border-radius:8px; font-size:.9rem; }
+  </style>
+</head>
+<body>
+  <a href="./../../index.html">[Principal]</a>
+  <h1>Formulario: Proveedores</h1>
+  <p class="muted">Solo ADMIN. RFC único y formato validado. Los ítems ofrecidos se asocian al Catálogo.</p>
+
+  <form id="frmProveedor" class="grid" onsubmit="handleSubmit(event)">
+    <fieldset>
+      <legend>Datos del proveedor</legend>
+      <div class="grid g3">
+        <div><label class="req">Primer nombre</label><input name="primer_nombre" required /></div>
+        <div><label>Segundo nombre</label><input name="segundo_nombre" /></div>
+        <div><label class="req">Apellido paterno</label><input name="ap_paterno" required /></div>
+        <div><label>Apellido materno</label><input name="ap_materno" /></div>
+        <div>
+          <label>RFC</label>
+          <input name="RFC" maxlength="13" pattern="[A-Z&Ñ]{3,4}\\d{6}[A-Z0-9]{0,3}" title="RFC mexicano: 3-4 letras + 6 dígitos de fecha + 0-3 alfanum." />
+        </div>
+        <div><label>Fecha de nacimiento</label><input type="date" name="fecha_nac" /></div>
+        <div>
+          <label>Sexo</label>
+          <select name="sexo">
+            <option value="">—</option>
+            <option>hombre</option>
+            <option>mujer</option>
+            <option>prefiero no decirlo</option>
+          </select>
+        </div>
+        <div><label>Nacionalidad</label><input name="nacionalidad" /></div>
+        <div><label>Teléfono</label><input name="telefono" pattern="[0-9+\\-()\\s]{7,}" title="Solo números y símbolos comunes" /></div>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Domicilio</legend>
+      <div class="grid g3">
+        <div><label>País</label><input name="pais" /></div>
+        <div><label>Estado</label><input name="estado" /></div>
+        <div><label>Municipio</label><input name="municipio" /></div>
+        <div><label>Colonia</label><input name="colonia" /></div>
+        <div><label>Calle</label><input name="calle" /></div>
+        <div><label>No. exterior</label><input name="no_exterior" /></div>
+        <div><label>No. interior (opcional)</label><input name="no_interior" /></div>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Ítems del catálogo que ofrece</legend>
+      <table>
+        <thead>
+          <tr>
+            <th>Id_item (SKU)</th>
+            <th>Precio unit.</th>
+            <th>Tipo entrega</th>
+            <th>Tiempo (días)</th>
+            <th>Notas</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="tbodyItems"></tbody>
+        <tfoot>
+          <tr>
+            <td colspan="6">
+              <button type="button" onclick="addRow()">+ Agregar ítem</button>
+            </td>
+          </tr>
+        </tfoot>
+      </table>
+      <p class="muted">Ejemplos de SKU: <code>REF-SSD-0001</code>, <code>SRV-MANT-0001</code>.</p>
+    </fieldset>
+
+    <div class="actions">
+      <button class="primary" type="submit">Guardar (mock)</button>
+      <button type="reset">Limpiar</button>
+    </div>
+  </form>
+
+  <h3>Salida (mock)</h3>
+  <pre id="out"></pre>
+
+  <template id="rowTpl">
+    <tr>
+      <td><input name="Id_item" required placeholder="REF-SSD-0001" /></td>
+      <td><input name="precio_unitario" type="number" step="0.01" min="0" required /></td>
+      <td>
+        <select name="tipo_entrega" required>
+          <option value="">—</option>
+          <option>local</option>
+          <option>mensajeria</option>
+          <option>foraneo</option>
+        </select>
+      </td>
+      <td><input name="tiempo_entrega_dias" type="number" min="0" /></td>
+      <td><input name="notas" /></td>
+      <td><button type="button" onclick="this.closest('tr').remove()">✕</button></td>
+    </tr>
+  </template>
+
+  <script>
+    const tbody = document.getElementById('tbodyItems');
+    function addRow() {
+      const tpl = document.getElementById('rowTpl').content.cloneNode(true);
+      tbody.appendChild(tpl);
+    }
+    // fila inicial
+    addRow();
+
+    function handleSubmit(e) {
+      e.preventDefault();
+      const f = e.target;
+      // datos proveedor
+      const prov = Object.fromEntries(new FormData(f).entries());
+      // items (leer directo de la tabla)
+      const items = [...tbody.querySelectorAll('tr')].map(tr => {
+        const get = n => tr.querySelector(`[name="${n}"]`)?.value?.trim() || null;
+        return {
+          Id_item: get('Id_item'),
+          precio_unitario: Number(get('precio_unitario')),
+          tipo_entrega: get('tipo_entrega'),
+          tiempo_entrega_dias: get('tiempo_entrega_dias') ? Number(get('tiempo_entrega_dias')) : null,
+          notas: get('notas')
+        };
+      }).filter(r => r.Id_item);
+
+      if (items.length === 0) {
+        alert('Agrega al menos un ítem ofrecido.');
+        return;
+      }
+
+      const payload = { proveedor: prov, items_ofrecidos: items };
+      document.getElementById('out').textContent = JSON.stringify(payload, null, 2);
+    }
+  </script>
+</body>
+</html>

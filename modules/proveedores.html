@@ -1,4 +1,59 @@
-<!-- Proveedores module -->
-<section>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Proveedores — SGTL</title>
+</head>
+<body>
+
+  <a href="./../index.html">[Principal]</a>
+
   <h1>Proveedores</h1>
-</section>
+  <p>
+    El subsistema <strong>Proveedores</strong> permite registrar y gestionar la información
+    de proveedores de refacciones y servicios mediante un sistema centralizado, garantizando
+    control confiable de insumos, precios y tiempos de entrega dentro del taller.
+  </p>
+
+  <h1>Usuarios del subsistema</h1>
+  <ul>
+    <li>Administrador (propietario)</li>
+    <li>Operador de compras (solo lectura)</li>
+  </ul>
+
+  <h1>Requerimientos por usuario</h1>
+
+  <h2>Requerimientos del Administrador</h2>
+  <p>El administrador debe ser capaz de:</p>
+  <ol>
+    <li>Registrar, leer, actualizar y borrar proveedores (CRUD).</li>
+    <li>Vincular cada proveedor con ítems del catálogo que ofrece, incluyendo: precio, tipo de entrega y tiempo estimado.</li>
+    <li>Buscar y filtrar proveedores por nombre, RFC, estado/municipio y tipo de insumo.</li>
+    <li>Validar unicidad de RFC y formato de teléfono; permitir <em>no_interior</em> nulo.</li>
+    <li>Exportar listados a CSV/XLSX/PDF.</li>
+  </ol>
+
+  <h2>Requerimientos del Operador de compras</h2>
+  <p>El operador debe ser capaz de:</p>
+  <ol>
+    <li>Consultar el padrón de proveedores y detalles de ítems ofrecidos.</li>
+    <li>Ver precios, tiempos de entrega y notas para cotizar.</li>
+    <li>Imprimir/descargar la ficha del proveedor.</li>
+  </ol>
+
+  <h1>Diseño de la base de datos del subsistema</h1>
+  <a href="dbase/tabla_proveedores.html">Base de Datos del subsistema</a>
+
+  <h1>Formulario</h1>
+  <a href="forms/proveedor_form.html">Formulario</a>
+
+  <h1>Responsable del subsistema</h1>
+  <ul>
+    <li> Jose Manuel Cortes Ceron - 230110688@itsoeh.edu.mx</li>
+  </ul>
+
+
+</body>
+</html>
+<!-- Proveedores module -->

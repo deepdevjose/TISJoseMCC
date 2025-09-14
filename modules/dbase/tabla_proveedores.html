@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DB — Proveedores</title>
+</head>
+<body>
+
+  <a href="./../proveedores.html">[Proveedores]</a> ·
+  <a href="./../../index.html">[Principal]</a>
+
+  <h1>Diseño de la base de datos del subsistema</h1>
+  <br>
+
+  <h1>Diagrama de la base de datos</h1>
+  <img src="../../assets/img/diagramaBD.png" alt="Diagrama de la base de datos — Proveedores" width="800">
+
+  <h1>Descripción de Pertinencia de la Arquitectura de la Base de Datos</h1>
+
+  <h2>Tabla Proveedor</h2>
+  <h3>Propósito</h3>
+  <p>Almacenar la información de proveedores de refacciones y servicios. Permite contacto confiable, validación de RFC y ubicación, y sirve de base para cotizaciones y compras.</p>
+  <h3>Campos</h3>
+  <ul>
+    <li>Id_proveedor: Clave primaria.</li>
+    <li>primer_nombre, segundo_nombre, ap_paterno, ap_materno: Identificación formal del proveedor o representante.</li>
+    <li>RFC: Identificador fiscal (único si se captura).</li>
+    <li>fecha_nac, sexo, nacionalidad: Datos opcionales del representante.</li>
+    <li>pais, estado, municipio, colonia, calle, no_exterior, no_interior: Domicilio.</li>
+    <li>telefono: Contacto.</li>
+  </ul>
+
+  <h2>Tabla ProveedorItem</h2>
+  <h3>Propósito</h3>
+  <p>Gestionar qué ítems del catálogo ofrece cada proveedor y en qué condiciones (precio, tipo y tiempo de entrega).</p>
+  <h3>Campos</h3>
+  <ul>
+    <li>Id_proveedor: FK a Proveedor.</li>
+    <li>Id_item: FK a CatalogoItem (SKU: <code>SRV-*</code>, <code>REF-*</code>).</li>
+    <li>precio_unitario: Precio ofertado por el proveedor.</li>
+    <li>tipo_entrega: local/mensajeria/foraneo.</li>
+    <li>tiempo_entrega_dias: Días estimados de entrega.</li>
+    <li>notas: Observaciones.</li>
+  </ul>
+
+  <p>Separar proveedor de los ítems evita duplicidad y permite múltiples proveedores por ítem y múltiples ítems por proveedor (relación N:M).</p>
+
+  <h2>Normalización de la Base de Datos</h2>
+  <h3>1NF</h3>
+  <p>Datos atómicos; cada fila representa un proveedor o una relación proveedor–ítem. Sin campos multivaluados.</p>
+  <h3>2NF</h3>
+  <p>En <em>ProveedorItem</em> la PK compuesta (Id_proveedor, Id_item) determina totalmente el resto de atributos (precio, entrega).</p>
+  <h3>3NF</h3>
+  <p>No hay dependencias transitivas: atributos como <em>precio_unitario</em> no dependen de otros no clave.</p>
+
+  <h1>Código SQL para crear tablas</h1>
+  <pre><code>
+-- Base de datos (ajusta si ya existe)
+CREATE DATABASE TallerLaptopsDB;
+GO
+USE TallerLaptopsDB;
+GO
+
+-- Catálogo (referenciado)
+IF OBJECT_ID('dbo.CatalogoItem','U') IS NULL
+BEGIN
+  CREATE TABLE dbo.CatalogoItem (
+    Id_item            VARCHAR(20)  NOT NULL,
+    nombre_item        VARCHAR(120) NOT NULL,
+    tipo               VARCHAR(15)  NOT NULL, -- 'servicio' | 'refaccion'
+    precio_item_unidad DECIMAL(12,2) NOT NULL,
+    descripcion        VARCHAR(500) NULL,
+    CONSTRAINT PK_CatalogoItem PRIMARY KEY (Id_item),
+    CONSTRAINT CHK_CatalogoItem_tipo CHECK (tipo IN ('servicio','refaccion')),
+    CONSTRAINT CHK_CatalogoItem_precio CHECK (precio_item_unidad >= 0)
+  );
+END
+GO
+
+-- Proveedor
+IF OBJECT_ID('dbo.Proveedor','U') IS NULL
+BEGIN
+  CREATE TABLE dbo.Proveedor (
+    Id_proveedor   INT IDENTITY(1,1) NOT NULL,
+    primer_nombre  VARCHAR(60)  NOT NULL,
+    segundo_nombre VARCHAR(60)  NULL,
+    ap_paterno     VARCHAR(60)  NOT NULL,
+    ap_materno     VARCHAR(60)  NULL,
+    RFC            VARCHAR(13)  NULL,
+    fecha_nac      DATE         NULL,
+    sexo           VARCHAR(20)  NULL,
+    nacionalidad   VARCHAR(40)  NULL,
+    pais           VARCHAR(60)  NULL,
+    estado         VARCHAR(60)  NULL,
+    municipio      VARCHAR(60)  NULL,
+    colonia        VARCHAR(80)  NULL,
+    calle          VARCHAR(120) NULL,
+    no_exterior    VARCHAR(20)  NULL,
+    no_interior    VARCHAR(20)  NULL,
+    telefono       VARCHAR(20)  NULL,
+    CONSTRAINT PK_Proveedor PRIMARY KEY (Id_proveedor),
+    CONSTRAINT CHK_Proveedor_sexo CHECK (sexo IN ('hombre','mujer','prefiero no decirlo'))
+  );
+  -- RFC único si se captura
+  CREATE UNIQUE INDEX UQ_Proveedor_RFC ON dbo.Proveedor(RFC) WHERE RFC IS NOT NULL;
+END
+GO
+
+-- ProveedorItem (N:M con condiciones)
+IF OBJECT_ID('dbo.ProveedorItem','U') IS NULL
+BEGIN
+  CREATE TABLE dbo.ProveedorItem (
+    Id_proveedor        INT         NOT NULL,
+    Id_item             VARCHAR(20) NOT NULL,
+    precio_unitario     DECIMAL(12,2) NOT NULL,
+    tipo_entrega        VARCHAR(20) NOT NULL, -- local/mensajeria/foraneo
+    tiempo_entrega_dias INT NULL,
+    notas               VARCHAR(300) NULL,
+    CONSTRAINT PK_ProveedorItem PRIMARY KEY (Id_proveedor, Id_item),
+    CONSTRAINT FK_ProveedorItem_Prov FOREIGN KEY (Id_proveedor) REFERENCES dbo.Proveedor(Id_proveedor),
+    CONSTRAINT FK_ProveedorItem_Item FOREIGN KEY (Id_item) REFERENCES dbo.CatalogoItem(Id_item),
+    CONSTRAINT CHK_ProvItem_precio CHECK (precio_unitario >= 0),
+    CONSTRAINT CHK_ProvItem_tipoent CHECK (tipo_entrega IN ('local','mensajeria','foraneo')),
+    CONSTRAINT CHK_ProvItem_tiempo CHECK (tiempo_entrega_dias IS NULL OR tiempo_entrega_dias >= 0)
+  );
+END
+GO
+  </code></pre>
+
+  <h1>Código SQL para agregar registros a las tablas</h1>
+
+  <h3>Datos de ejemplo en Catálogo (mínimo para FK)</h3>
+  <pre><code>
+INSERT INTO dbo.CatalogoItem (Id_item, nombre_item, tipo, precio_item_unidad, descripcion) VALUES
+('REF-SSD-0001', 'SSD 1TB NVMe', 'refaccion', 1850.00, 'SSD PCIe 4.0'),
+('REF-RAM-0001', 'RAM 16GB DDR5', 'refaccion', 920.00, 'SO-DIMM 5600'),
+('SRV-MANT-0001', 'Mantenimiento preventivo', 'servicio', 450.00, 'Limpieza y pasta térmica');
+  </code></pre>
+
+  <h3>Proveedores e ítems que ofrece cada uno</h3>
+  <pre><code>
+INSERT INTO dbo.Proveedor (primer_nombre, segundo_nombre, ap_paterno, ap_materno, RFC, telefono, pais, estado, municipio)
+VALUES
+('Luis','Alberto','Pérez','Soto','PESL800101AB1','555-123-4567','México','CDMX','Benito Juárez'),
+('María',NULL,'García','Ruiz','GARL900202CD2','555-987-6543','México','Jalisco','Guadalajara');
+
+INSERT INTO dbo.ProveedorItem (Id_proveedor, Id_item, precio_unitario, tipo_entrega, tiempo_entrega_dias, notas)
+VALUES
+(1,'REF-SSD-0001',1720.00,'mensajeria',3,'Precio por volumen &gt; 5 pzs'),
+(1,'SRV-MANT-0001',400.00,'local',0,'Subcontrata servicio'),
+(2,'REF-RAM-0001',880.00,'foraneo',5,'Incluye envío terrestre');
+  </code></pre>
+
+</body>
+</html>

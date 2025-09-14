@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DB — Personal</title>
+</head>
+<body>
+
+  <a href="./../personal.html">[Personal]</a> ·
+  <a href="./../../index.html">[Principal]</a>
+
+  <h1>Diseño de la base de datos del subsistema</h1>
+  <br>
+
+  <h1>Diagrama de la base de datos</h1>
+  <img src="../../assets/img/diagramaBD.png" alt="Diagrama de la base de datos — Personal" width="800">
+
+  <h1>Descripción de Pertinencia de la Arquitectura de la Base de Datos</h1>
+
+  <h2>Tabla Personal</h2>
+  <h3>Propósito</h3>
+  <p>Registrar y mantener la información del personal del taller, su rol y estado (activo/inactivo), habilitando control de acceso por módulos.</p>
+  <h3>Campos</h3>
+  <ul>
+    <li>Id_personal: Clave primaria.</li>
+    <li>primer_nombre, segundo_nombre, ap_paterno, ap_materno: Identificación formal.</li>
+    <li>telefono, direccion, correo (único opcional): Contacto.</li>
+    <li>sexo, fecha_nac: Datos personales (edad se calcula en reportes).</li>
+    <li>rol: admin/operador/cajero/tecnico/marketing.</li>
+    <li>estado: activo/inactivo (DFL a activo).</li>
+  </ul>
+
+  <h2>Normalización de la Base de Datos</h2>
+  <h3>1NF</h3>
+  <p>Datos atómicos por empleado; sin listas en columnas.</p>
+  <h3>2NF</h3>
+  <p>Todos los atributos dependen de Id_personal; no hay PK compuesta.</p>
+  <h3>3NF</h3>
+  <p>No hay dependencias transitivas entre atributos no clave.</p>
+
+  <h1>Código SQL para crear tablas</h1>
+  <pre><code>
+USE TallerLaptopsDB;
+GO
+
+IF OBJECT_ID('dbo.Personal','U') IS NULL
+BEGIN
+  CREATE TABLE dbo.Personal (
+    Id_personal     INT IDENTITY(1,1) NOT NULL,
+    primer_nombre   VARCHAR(60) NOT NULL,
+    segundo_nombre  VARCHAR(60) NULL,
+    ap_paterno      VARCHAR(60) NOT NULL,
+    ap_materno      VARCHAR(60) NULL,
+    telefono        VARCHAR(20) NULL,
+    direccion       VARCHAR(200) NULL,
+    correo          VARCHAR(120) NULL,
+    sexo            VARCHAR(20)  NULL,
+    fecha_nac       DATE         NULL,
+    rol             VARCHAR(20)  NOT NULL CONSTRAINT DFL_Personal_rol DEFAULT 'tecnico',
+    estado          VARCHAR(12)  NOT NULL CONSTRAINT DFL_Personal_estado DEFAULT 'activo',
+    CONSTRAINT PK_Personal PRIMARY KEY (Id_personal),
+    CONSTRAINT UQ_Personal_correo UNIQUE (correo),
+    CONSTRAINT CHK_Personal_sexo CHECK (sexo IN ('hombre','mujer','prefiero no decirlo') OR sexo IS NULL),
+    CONSTRAINT CHK_Personal_rol  CHECK (rol IN ('admin','operador','cajero','tecnico','marketing')),
+    CONSTRAINT CHK_Personal_estado CHECK (estado IN ('activo','inactivo'))
+  );
+END
+GO
+  </code></pre>
+
+  <h1>Código SQL para agregar registros a las tablas</h1>
+  <pre><code>
+INSERT INTO dbo.Personal (primer_nombre, ap_paterno, telefono, correo, rol)
+VALUES
+('José','Cortés','555-000-1111','jose.taller@example.com','admin'),
+('Ana','Ramírez','555-000-2222','ana.tecnica@example.com','tecnico'),
+('Luis','Mora','555-000-3333','luis.caja@example.com','cajero');
+  </code></pre>
+
+</body>
+</html>
