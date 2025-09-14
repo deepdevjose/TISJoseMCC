@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Formulario — Personal</title>
+  <style>
+    body { font-family: system-ui, Arial, sans-serif; max-width: 880px; margin: 24px auto; padding: 0 16px; }
+    fieldset { border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 18px; }
+    legend { font-weight: 600; }
+    .grid { display: grid; gap: 12px; }
+    .g2 { grid-template-columns: repeat(2, minmax(0,1fr)); }
+    .g3 { grid-template-columns: repeat(3, minmax(0,1fr)); }
+    label { display:block; margin-bottom:4px; }
+    input, select, textarea { width: 100%; padding: 8px; border: 1px solid #bbb; border-radius: 6px; }
+    .actions { display: flex; gap: 12px; }
+    button { padding: 8px 12px; border: 1px solid #999; border-radius: 6px; background: #f5f5f5; cursor: pointer; }
+    button.primary { background: #10b981; color: white; border-color: #10b981; }
+    .muted { color:#666; font-size:.9rem; }
+    #out { white-space: pre-wrap; background:#0b1020; color:#d9ffe7; padding:12px; border-radius:8px; font-size:.9rem; }
+  </style>
+</head>
+<body>
+  <a href="./../../index.html">[Principal]</a>
+  <h1>Formulario: Personal</h1>
+  <p class="muted">Solo ADMIN. La edad se calcula automáticamente desde la fecha de nacimiento (no se guarda físicamente).</p>
+
+  <form id="frmPersonal" onsubmit="handleSubmit(event)">
+    <fieldset>
+      <legend>Datos del personal</legend>
+      <div class="grid g3">
+        <div><label>Primer nombre</label><input name="primer_nombre" required /></div>
+        <div><label>Segundo nombre</label><input name="segundo_nombre" /></div>
+        <div><label>Apellido paterno</label><input name="ap_paterno" required /></div>
+        <div><label>Apellido materno</label><input name="ap_materno" /></div>
+        <div><label>Teléfono</label><input name="telefono" pattern="[0-9+\\-()\\s]{7,}" title="Solo números y símbolos comunes" /></div>
+        <div><label>Dirección</label><input name="direccion" /></div>
+        <div>
+          <label>Sexo</label>
+          <select name="sexo">
+            <option value="">—</option>
+            <option>hombre</option>
+            <option>mujer</option>
+            <option>prefiero no decirlo</option>
+          </select>
+        </div>
+        <div><label>Fecha de nacimiento</label><input type="date" name="fecha_nac" id="fecha_nac" /></div>
+        <div><label>Edad (calculada)</label><input id="edad" disabled /></div>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Acceso y rol</legend>
+      <div class="grid g3">
+        <div>
+          <label>Rol</label>
+          <select name="rol" required>
+            <option value="">—</option>
+            <option>admin</option>
+            <option>operador</option>
+            <option>cajero</option>
+            <option>tecnico</option>
+            <option>marketing</option>
+          </select>
+        </div>
+        <div>
+          <label>Estado</label>
+          <select name="estado">
+            <option>activo</option>
+            <option>inactivo</option>
+          </select>
+        </div>
+        <div>
+          <label>Correo (opcional)</label>
+          <input type="email" name="correo" />
+        </div>
+      </div>
+      <p class="muted">Si luego implementas login, aquí podrás vincular credenciales/usuario.</p>
+    </fieldset>
+
+    <div class="actions">
+      <button class="primary" type="submit">Guardar (mock)</button>
+      <button type="reset">Limpiar</button>
+    </div>
+  </form>
+
+  <h3>Salida (mock)</h3>
+  <pre id="out"></pre>
+
+  <script>
+    const fNac = document.getElementById('fecha_nac');
+    const edad = document.getElementById('edad');
+    fNac.addEventListener('change', () => {
+      if (!fNac.value) { edad.value = ''; return; }
+      const d = new Date(fNac.value);
+      const t = new Date();
+      let e = t.getFullYear() - d.getFullYear();
+      const m = t.getMonth() - d.getMonth();
+      if (m < 0 || (m === 0 && t.getDate() < d.getDate())) e--;
+      edad.value = e >= 0 ? e : '';
+    });
+
+    function handleSubmit(e) {
+      e.preventDefault();
+      const data = Object.fromEntries(new FormData(e.target).entries());
+      // edad solo para mostrar
+      if (edad.value) data.edad_calculada = Number(edad.value);
+      document.getElementById('out').textContent = JSON.stringify(data, null, 2);
+    }
+  </script>
+</body>
+</html>

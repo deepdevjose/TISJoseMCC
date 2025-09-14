@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DB — Catálogo</title>
+</head>
+<body>
+
+  <a href="./../catalogo.html">[Catálogo]</a> ·
+  <a href="./../../index.html">[Principal]</a>
+
+  <h1>Diseño de la base de datos del subsistema</h1>
+  <br>
+
+  <h1>Diagrama de la base de datos</h1>
+  <img src="../../assets/img/diagramaBD.png" alt="Diagrama de la base de datos — Catálogo" width="800">
+
+  <h1>Descripción de Pertinencia de la Arquitectura de la Base de Datos</h1>
+
+  <h2>Tabla CatalogoItem</h2>
+  <h3>Propósito</h3>
+  <p>Definir los ítems ofertados por el taller (servicios y refacciones) con su SKU, nombre, tipo, precio y descripción. El stock se controla en el módulo de Inventario.</p>
+  <h3>Campos</h3>
+  <ul>
+    <li>Id_item: Clave primaria y SKU (p.ej. SRV-MANT-0001, REF-SSD-0001).</li>
+    <li>nombre_item: Nombre del ítem.</li>
+    <li>tipo: 'servicio' o 'refaccion'.</li>
+    <li>precio_item_unidad: Precio por unidad (MXN).</li>
+    <li>descripcion: Detalle del servicio/refacción.</li>
+  </ul>
+
+  <h2>Normalización de la Base de Datos</h2>
+  <h3>1NF</h3>
+  <p>Cada ítem es una fila única con atributos atómicos.</p>
+  <h3>2NF</h3>
+  <p>Todos los atributos dependen de Id_item; no existe PK compuesta.</p>
+  <h3>3NF</h3>
+  <p>No hay dependencias transitivas entre atributos no clave.</p>
+
+  <h1>Código SQL para crear tablas</h1>
+  <pre><code>
+USE TallerLaptopsDB;
+GO
+
+IF OBJECT_ID('dbo.CatalogoItem','U') IS NOT NULL
+  DROP TABLE dbo.CatalogoItem;
+GO
+
+CREATE TABLE dbo.CatalogoItem (
+  Id_item            VARCHAR(20)  NOT NULL,
+  nombre_item        VARCHAR(120) NOT NULL,
+  tipo               VARCHAR(15)  NOT NULL, -- 'servicio' | 'refaccion'
+  precio_item_unidad DECIMAL(12,2) NOT NULL,
+  descripcion        VARCHAR(500) NULL,
+  CONSTRAINT PK_CatalogoItem PRIMARY KEY (Id_item),
+  CONSTRAINT CHK_CatalogoItem_tipo CHECK (tipo IN ('servicio','refaccion')),
+  CONSTRAINT CHK_CatalogoItem_precio CHECK (precio_item_unidad >= 0)
+);
+GO
+  </code></pre>
+
+  <h1>Código SQL para agregar registros a las tablas</h1>
+  <pre><code>
+INSERT INTO dbo.CatalogoItem (Id_item, nombre_item, tipo, precio_item_unidad, descripcion) VALUES
+('SRV-MANT-0001','Mantenimiento preventivo','servicio',450.00,'Limpieza, pasta térmica, pruebas básicas'),
+('SRV-SOFT-0001','Formateo e instalación de SO','servicio',600.00,'Instalación de Windows 11 + drivers'),
+('REF-SSD-0001','SSD 1TB NVMe','refaccion',1850.00,'PCIe 4.0, lectura hasta 7,000 MB/s'),
+('REF-RAM-0001','RAM 16GB DDR5','refaccion',920.00,'SO-DIMM 5600 MT/s');
+  </code></pre>
+
+</body>
+</html>

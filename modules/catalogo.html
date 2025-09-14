@@ -1,4 +1,59 @@
-<!-- Catalogo module -->
-<section>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catálogo — SGTL</title>
+</head>
+<body>
+
+  <a href="./../index.html">[Principal]</a>
+
   <h1>Catálogo</h1>
-</section>
+  <p>
+    El subsistema <strong>Catálogo</strong> permite registrar y organizar los
+    <em>servicios y refacciones</em> disponibles mediante un catálogo digital estandarizado,
+    facilitando la consulta y la asignación en diagnósticos, cotizaciones y ventas.
+  </p>
+
+  <h1>Usuarios del subsistema</h1>
+  <ul>
+    <li>Administrador (CRUD)</li>
+    <li>Operador / Técnico (lectura)</li>
+    <li>Cajero (lectura)</li>
+  </ul>
+
+  <h1>Requerimientos por usuario</h1>
+
+  <h2>Requerimientos del Administrador</h2>
+  <p>El administrador debe ser capaz de:</p>
+  <ol>
+    <li>Registrar, leer, actualizar y borrar ítems (CRUD).</li>
+    <li>Definir <strong>SKU</strong> y formato: <code>SRV-*</code> para servicios, <code>REF-*</code> para refacciones.</li>
+    <li>Indicar tipo (servicio/refacción), nombre, descripción y <strong>precio por unidad</strong>.</li>
+    <li>Vincular con Inventario para existencias y control de stock (la gestión de cantidades se hace en Inventario).</li>
+    <li>Buscar/filtrar por tipo, nombre y SKU.</li>
+  </ol>
+
+  <h2>Requerimientos de Operador / Técnico / Cajero</h2>
+  <p>Debe ser capaz de:</p>
+  <ol>
+    <li>Consultar el catálogo y ver precio/descripcion de cada ítem.</li>
+    <li>Filtrar por servicio/refacción y buscar por nombre/SKU.</li>
+    <li>Ver existencias provenientes del módulo Inventario (solo lectura).</li>
+  </ol>
+
+  <h1>Diseño de la base de datos del subsistema</h1>
+  <a href="dbase/tabla_catalogo.html">Base de Datos del subsistema</a>
+
+  <h1>Formulario</h1>
+  <a href="forms/catalogo_form.html">Formulario</a>
+
+  <h1>Responsable del subsistema</h1>
+  <ul>
+    <li> Jose Manuel Cortes Ceron - 230110688@itsoeh.edu.mx</li>
+  </ul>
+
+</body>
+</html>
+<!-- Catalog module -->
