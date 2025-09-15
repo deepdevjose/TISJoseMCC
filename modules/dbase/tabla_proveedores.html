@@ -14,8 +14,8 @@
   <h1>Diseño de la base de datos del subsistema</h1>
   <br>
 
-  <h1>Diagrama de la base de datos</h1>
-  <img src="../../assets/img/diagramaBD.png" alt="Diagrama de la base de datos — Proveedores" width="800">
+  <h1>Diagrama de la tabla en la base de datos</h1>
+  <img src="../../assets/img/tabla_proveedores.png" alt="Diagrama de la tabla en la base de datos — Proveedores" width="800">
 
   <h1>Descripción de Pertinencia de la Arquitectura de la Base de Datos</h1>
 
@@ -57,26 +57,9 @@
 
   <h1>Código SQL para crear tablas</h1>
   <pre><code>
--- Base de datos (ajusta si ya existe)
-CREATE DATABASE TallerLaptopsDB;
-GO
-USE TallerLaptopsDB;
-GO
+-- Base de datos
 
--- Catálogo (referenciado)
-IF OBJECT_ID('dbo.CatalogoItem','U') IS NULL
-BEGIN
-  CREATE TABLE dbo.CatalogoItem (
-    Id_item            VARCHAR(20)  NOT NULL,
-    nombre_item        VARCHAR(120) NOT NULL,
-    tipo               VARCHAR(15)  NOT NULL, -- 'servicio' | 'refaccion'
-    precio_item_unidad DECIMAL(12,2) NOT NULL,
-    descripcion        VARCHAR(500) NULL,
-    CONSTRAINT PK_CatalogoItem PRIMARY KEY (Id_item),
-    CONSTRAINT CHK_CatalogoItem_tipo CHECK (tipo IN ('servicio','refaccion')),
-    CONSTRAINT CHK_CatalogoItem_precio CHECK (precio_item_unidad >= 0)
-  );
-END
+USE TallerLaptopsDB;
 GO
 
 -- Proveedor
