@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,21 +10,23 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
+
 <body class="module-page">
   <!-- Header with navigation -->
   <header class="module-header">
     <div class="container">
       <nav class="module-nav">
         <a href="../personal.html" class="back-link">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="margin-right: 0.5rem; vertical-align: middle;">
-            <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.42-1.41L7.83 13H20v-2z"/>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"
+            style="margin-right: 0.5rem; vertical-align: middle;">
+            <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.42-1.41L7.83 13H20v-2z" />
           </svg>
           Volver a Personal
         </a>
         <div class="module-status">
           <span class="status-badge active">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="#28A745">
-              <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+              <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
             </svg>
             Base de Datos
           </span>
@@ -36,230 +39,286 @@
   <div class="container">
     <!-- Hero Section -->
     <section class="module-hero">
-    <div class="hero-content">
-      <div class="hero-text">
-        <h1 class="module-title">Base de Datos • Personal</h1>
-        <p class="module-description">Diseño y estructura de la base de datos del subsistema de personal</p>
-        <div class="hero-stats">
-          <div class="stat-item">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <ellipse cx="12" cy="5" rx="9" ry="3"/>
-              <path d="m3 5 0 14c0 1.7 4 3 9 3s9-1.3 9-3V5"/>
-              <path d="m3 12c0 1.7 4 3 9 3s9-1.3 9-3"/>
-            </svg>
-            <span>1 Tabla Principal</span>
-          </div>
-          <div class="stat-item">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
-              <circle cx="12" cy="7" r="4"/>
-            </svg>
-            <span>12 Campos</span>
-          </div>
-          <div class="stat-item">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/>
-              <rect x="8" y="2" width="8" height="4" rx="1" ry="1"/>
-            </svg>
-            <span>5 Roles</span>
+      <div class="hero-content">
+        <div class="hero-text">
+          <h1 class="module-title">Base de Datos • Personal</h1>
+          <p class="module-description">Diseño y estructura de la base de datos del subsistema de personal.</p>
+          <div class="hero-stats">
+            <div class="stat-item">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <ellipse cx="12" cy="5" rx="9" ry="3" />
+                <path d="m3 5 0 14c0 1.7 4 3 9 3s9-1.3 9-3V5" />
+                <path d="m3 12c0 1.7 4 3 9 3s9-1.3 9-3" />
+              </svg>
+              <span><strong>4 Tablas</strong> (1 Principal + 3 de Apoyo)</span>
+            </div>
+            <div class="stat-item">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 8c0 4.4-3.6 8-8 8s-8-3.6-8-8 3.6-8 8-8 8 3.6 8 8Z" />
+                <path d="M18 16c0 4.4-3.6 8-8 8s-8-3.6-8-8 3.6-8 8-8 8 3.6 8 8Z" opacity=".5" />
+              </svg>
+              <span><strong>3 Relaciones 1:N</strong></span>
+            </div>
+            <div class="stat-item">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path
+                  d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+              </svg>
+              <span><strong>Normalizada (3NF)</strong></span>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Main Content -->
-  <main class="module-content">
-    <!-- Database Design Section -->
-    <section class="content-section">
-      <div class="section-header">
-        <svg class="section-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <ellipse cx="12" cy="5" rx="9" ry="3"/>
-          <path d="m3 5 0 14c0 1.7 4 3 9 3s9-1.3 9-3V5"/>
-          <path d="m3 12c0 1.7 4 3 9 3s9-1.3 9-3"/>
-        </svg>
-        <h2>Diagrama de la Base de Datos</h2>
-      </div>
-      <div class="diagram-container">
-        <img src="../../assets/img/tabla_personal.png" alt="Diagrama de la tabla en la base de datos — Personal" class="database-diagram">
-      </div>
     </section>
 
-    <!-- Architecture Description Section -->
-    <section class="content-section">
-      <div class="section-header">
-        <svg class="section-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-          <polyline points="14,2 14,8 20,8"/>
-          <line x1="16" y1="13" x2="8" y2="13"/>
-          <line x1="16" y1="17" x2="8" y2="17"/>
-          <polyline points="10,9 9,9 8,9"/>
-        </svg>
-        <h2>Arquitectura de la Base de Datos</h2>
-      </div>
-
-      <div class="table-info-card">
-        <div class="table-header">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
-            <circle cx="12" cy="7" r="4"/>
+    <!-- Main Content -->
+    <main class="module-content">
+      <!-- Database Design Section -->
+      <section class="content-section">
+        <div class="section-header">
+          <svg class="section-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2">
+            <ellipse cx="12" cy="5" rx="9" ry="3" />
+            <path d="m3 5 0 14c0 1.7 4 3 9 3s9-1.3 9-3V5" />
+            <path d="m3 12c0 1.7 4 3 9 3s9-1.3 9-3" />
           </svg>
-          <h3>Tabla Personal</h3>
+          <h2>Diagrama de la Base de Datos</h2>
         </div>
-        
-        <div class="table-purpose">
-          <h4>Propósito</h4>
-          <p>Registrar y mantener la información del personal del taller, su rol y estado (activo/inactivo), habilitando control de acceso por módulos.</p>
+        <div class="diagram-container">
+          <img src="../../assets/img/tabla_personal.png" alt="Diagrama de la tabla en la base de datos — Personal"
+            class="database-diagram">
         </div>
+      </section>
 
-        <div class="table-fields">
-          <h4>Campos</h4>
-          <div class="fields-grid">
-            <div class="field-item">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M9 12l2 2 4-4"/>
-                <circle cx="12" cy="12" r="10"/>
-              </svg>
-              <div>
-                <strong>Id_personal:</strong> Clave primaria
-              </div>
-            </div>
-            <div class="field-item">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
-                <circle cx="12" cy="7" r="4"/>
-              </svg>
-              <div>
-                <strong>primer_nombre, segundo_nombre, ap_paterno, ap_materno:</strong> Identificación formal
-              </div>
-            </div>
-            <div class="field-item">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-              </svg>
-              <div>
-                <strong>telefono, direccion, correo:</strong> Información de contacto (correo único opcional)
-              </div>
-            </div>
-            <div class="field-item">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <rect x="3" y="4" width="18" height="16" rx="2"/>
-                <line x1="3" y1="10" x2="21" y2="10"/>
-              </svg>
-              <div>
-                <strong>sexo, fecha_nac:</strong> Datos personales (edad se calcula en reportes)
-              </div>
-            </div>
-            <div class="field-item">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/>
-                <rect x="8" y="2" width="8" height="4" rx="1" ry="1"/>
-              </svg>
-              <div>
-                <strong>rol:</strong> admin/operador/cajero/tecnico/marketing
-              </div>
-            </div>
-            <div class="field-item">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <circle cx="12" cy="12" r="3"/>
-                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1 1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
-              </svg>
-              <div>
-                <strong>estado:</strong> activo/inactivo (por defecto activo)
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="normalization-section">
-        <h3>
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+      <!-- Architecture Description Section -->
+      <section class="content-section">
+        <div class="section-header">
+          <svg class="section-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+            <polyline points="14,2 14,8 20,8" />
+            <line x1="16" y1="13" x2="8" y2="13" />
+            <line x1="16" y1="17" x2="8" y2="17" />
+            <polyline points="10,9 9,9 8,9" />
           </svg>
-          Normalización de la Base de Datos
-        </h3>
-        <div class="normalization-grid">
-          <div class="norm-card">
-            <h4>1NF</h4>
-            <p>Datos atómicos por empleado; sin listas en columnas.</p>
-          </div>
-          <div class="norm-card">
-            <h4>2NF</h4>
-            <p>Todos los atributos dependen de Id_personal; no hay PK compuesta.</p>
-          </div>
-          <div class="norm-card">
-            <h4>3NF</h4>
-            <p>No hay dependencias transitivas entre atributos no clave.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+          <main class="container">
+            <section class="content-section">
+              <div class="section-header">
+                <svg class="section-icon" width="24" height="24" viewBox="0 a_0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2">
+                  <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+                </svg>
+                <h2>Arquitectura de la Base de Datos</h2>
+              </div>
 
-    <!-- SQL Code Section -->
-    <section class="content-section">
-      <div class="section-header">
-        <svg class="section-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <polyline points="16 18 22 12 16 6"/>
-          <polyline points="8 6 2 12 8 18"/>
-        </svg>
-        <h2>Código SQL para Crear Tablas</h2>
-      </div>
-      <div class="code-container">
-        <div class="code-header">
-          <span class="code-language">SQL</span>
-          <span class="code-title">Creación de tabla Personal</span>
-        </div>
-        <pre><code>USE TallerLaptopsDB;
+              <div class="table-info-card">
+                <div class="table-header">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                    <circle cx="12" cy="7" r="4" />
+                  </svg>
+                  <h3>Tabla Personal</h3>
+                </div>
+                <div class="table-purpose">
+                  <h4>Propósito</h4>
+                  <p>Almacenar el registro central de cada empleado, vinculando su información personal con roles y
+                    estados estandarizados para un control de acceso robusto y una gestión de RRHH consistente.</p>
+                </div>
+                <div class="table-fields">
+                  <h4>Campos</h4>
+                  <div class="fields-grid">
+                    <div class="field-item">
+                      <strong>Id_personal:</strong> Clave primaria (PK) autoincremental única para cada empleado.
+                    </div>
+                    <div class="field-item">
+                      <strong>primer_nombre, ap_paterno, etc.:</strong> Campos para la identificación formal del
+                      empleado.
+                    </div>
+                    <div class="field-item">
+                      <strong>telefono, correo, etc.:</strong> Información de contacto. El correo es único si se
+                      especifica.
+                    </div>
+                    <div class="field-item">
+                      <strong>Id_rol:</strong> Clave foránea (FK) que se conecta con `PersonalRol` para definir sus
+                      permisos.
+                    </div>
+                    <div class="field-item">
+                      <strong>Id_estado:</strong> Clave foránea (FK) que se conecta con `PersonalEstado` para definir su
+                      estatus (ej. 'Activo').
+                    </div>
+                    <div class="field-item">
+                      <strong>Id_sexo:</strong> Clave foránea (FK) opcional que se conecta con la tabla compartida
+                      `Sexo`.
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="support-tables-grid">
+                <div class="table-info-card small">
+                  <div class="table-header">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
+                      <rect x="8" y="2" width="8" height="4" rx="1" ry="1" />
+                    </svg>
+                    <div class="support-tables-grid">
+                      <div class="table-info-card small">
+                        <div class="table-header">
+                          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
+                            <rect x="8" y="2" width="8" height="4" rx="1" ry="1" />
+                          </svg>
+                          <h3>Tabla PersonalRol</h3>
+                        </div>
+                        <div class="table-purpose">
+                          <p>Catálogo para estandarizar los roles. Evita errores y facilita la gestión de permisos.</p>
+                        </div>
+                        <div class="table-fields">
+                          <h4>Campos</h4>
+                          <div class="fields-grid small-grid">
+                            <div class="field-item">
+                              <strong>Id_rol:</strong> Clave primaria (PK) para el rol.
+                            </div>
+                            <div class="field-item">
+                              <strong>nombre:</strong> Descripción del rol (ej. 'Administrador').
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="table-info-card small">
+                        <div class="table-header">
+                          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <circle cx="12" cy="12" r="3" />
+                            <path
+                              d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1 1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z" />
+                          </svg>
+                          <h3>Tabla PersonalEstado</h3>
+                        </div>
+                        <div class="table-purpose">
+                          <p>Catálogo para los estados del personal ('Activo', 'Inactivo'). Centraliza las opciones
+                            disponibles.</p>
+                        </div>
+                        <div class="table-fields">
+                          <h4>Campos</h4>
+                          <div class="fields-grid small-grid">
+                            <div class="field-item">
+                              <strong>Id_estado:</strong> Clave primaria (PK) para el estado.
+                            </div>
+                            <div class="field-item">
+                              <strong>nombre:</strong> Descripción del estado (ej. 'Activo').
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="normalization-section">
+                  <h3>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path
+                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                    </svg>
+                    Normalización de la Base de Datos
+                  </h3>
+                  <div class="normalization-grid">
+                    <div class="norm-card">
+                      <h4>1NF</h4>
+                      <p>Datos atómicos por empleado; cada celda contiene un solo valor.</p>
+                    </div>
+                    <div class="norm-card">
+                      <h4>2NF</h4>
+                      <p>Todos los atributos dependen directamente de la clave primaria `Id_personal`.</p>
+                    </div>
+                    <div class="norm-card">
+                      <h4>3NF</h4>
+                      <p>Al separar Roles y Estados en tablas de catálogo, se eliminan dependencias transitivas y se
+                        previene la redundancia de datos.</p>
+                    </div>
+                  </div>
+                </div>
+            </section>
+
+            <section class="content-section">
+              <div class="section-header">
+                <svg class="section-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2">
+                  <polyline points="16 18 22 12 16 6" />
+                  <polyline points="8 6 2 12 8 18" />
+                </svg>
+                <h2>Código SQL para Crear Tablas</h2>
+              </div>
+              <div class="code-container">
+                <div class="code-header">
+                  <span class="code-language">SQL</span>
+                  <span class="code-title">Creación de tablas del módulo Personal</span>
+                </div>
+                <pre><code>-- Tablas de apoyo para normalizar
+CREATE TABLE dbo.PersonalRol (
+    Id_rol      TINYINT IDENTITY(1,1) PRIMARY KEY,
+    nombre      NVARCHAR(50) NOT NULL UNIQUE
+);
+CREATE TABLE dbo.PersonalEstado (
+    Id_estado   TINYINT IDENTITY(1,1) PRIMARY KEY,
+    nombre      NVARCHAR(50) NOT NULL UNIQUE
+);
 GO
 
-IF OBJECT_ID('dbo.Personal','U') IS NULL
-BEGIN
-  CREATE TABLE dbo.Personal (
-    Id_personal     INT IDENTITY(1,1) NOT NULL,
-    primer_nombre   VARCHAR(60) NOT NULL,
-    segundo_nombre  VARCHAR(60) NULL,
-    ap_paterno      VARCHAR(60) NOT NULL,
-    ap_materno      VARCHAR(60) NULL,
-    telefono        VARCHAR(20) NULL,
-    direccion       VARCHAR(200) NULL,
-    correo          VARCHAR(120) NULL,
-    sexo            VARCHAR(20)  NULL,
-    fecha_nac       DATE         NULL,
-    rol             VARCHAR(20)  NOT NULL CONSTRAINT DFL_Personal_rol DEFAULT 'tecnico',
-    estado          VARCHAR(12)  NOT NULL CONSTRAINT DFL_Personal_estado DEFAULT 'activo',
-    CONSTRAINT PK_Personal PRIMARY KEY (Id_personal),
-    CONSTRAINT UQ_Personal_correo UNIQUE (correo),
-    CONSTRAINT CHK_Personal_sexo CHECK (sexo IN ('hombre','mujer','prefiero no decirlo') OR sexo IS NULL),
-    CONSTRAINT CHK_Personal_rol  CHECK (rol IN ('admin','operador','cajero','tecnico','marketing')),
-    CONSTRAINT CHK_Personal_estado CHECK (estado IN ('activo','inactivo'))
-  );
-END
-GO</code></pre>
-      </div>
-    </section>
+-- Tabla principal de Personal
+CREATE TABLE dbo.Personal (
+    Id_personal     INT IDENTITY(1,1) PRIMARY KEY,
+    primer_nombre   NVARCHAR(60)  NOT NULL,
+    segundo_nombre  NVARCHAR(60)  NULL,
+    ap_paterno      NVARCHAR(60)  NOT NULL,
+    ap_materno      NVARCHAR(60)  NULL,
+    telefono        VARCHAR(25)   NULL,
+    direccion       NVARCHAR(250) NULL,
+    correo          NVARCHAR(120) NULL,
+    Id_sexo         TINYINT       NULL REFERENCES dbo.Sexo(Id_sexo),
+    fecha_nac       DATE          NULL,
+    Id_rol          TINYINT       NOT NULL REFERENCES dbo.PersonalRol(Id_rol),
+    Id_estado       TINYINT       NOT NULL REFERENCES dbo.PersonalEstado(Id_estado)
+);
+GO
 
-    <!-- Sample Data Section -->
-    <section class="content-section">
-      <div class="section-header">
-        <svg class="section-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
-        </svg>
-        <h2>Datos de Ejemplo</h2>
-      </div>
-      <div class="code-container">
-        <div class="code-header">
-          <span class="code-language">SQL</span>
-          <span class="code-title">Inserción de registros de ejemplo</span>
-        </div>
-        <pre><code>INSERT INTO dbo.Personal (primer_nombre, ap_paterno, telefono, correo, rol)
+-- Índice único filtrado para correos no nulos
+CREATE UNIQUE INDEX UQ_Personal_correo ON dbo.Personal(correo) WHERE correo IS NOT NULL;
+GO</code></pre>
+              </div>
+            </section>
+
+            <section class="content-section">
+              <div class="section-header">
+                <svg class="section-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2">
+                  <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+                </svg>
+                <h2>Datos de Ejemplo</h2>
+              </div>
+              <div class="code-container">
+                <div class="code-header">
+                  <span class="code-language">SQL</span>
+                  <span class="code-title">Inserción de registros de ejemplo</span>
+                </div>
+                <pre><code>-- Poblar catálogos primero
+INSERT INTO dbo.PersonalRol (nombre) VALUES ('Administrador'), ('Técnico'), ('Cajero');
+INSERT INTO dbo.PersonalEstado (nombre) VALUES ('Activo'), ('Inactivo');
+GO
+
+-- Insertar personal usando los IDs de los catálogos
+INSERT INTO dbo.Personal (primer_nombre, ap_paterno, telefono, correo, Id_rol, Id_estado)
 VALUES
-('José','Cortés','555-000-1111','jose.taller@example.com','admin'),
-('Ana','Ramírez','555-000-2222','ana.tecnica@example.com','tecnico'),
-('Luis','Mora','555-000-3333','luis.caja@example.com','cajero');</code></pre>
-      </div>
-    </section>
-  </main>
+('José','Cortés','555-000-1111','jose.taller@example.com', 1, 1),
+('Ana','Ramírez','555-000-2222','ana.tecnica@example.com', 2, 1),
+('Luis','Mora','555-000-3333','luis.caja@example.com', 3, 1);
+GO</code></pre>
+              </div>
+            </section>
+          </main>
 
 </body>
+
 </html>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,21 +10,23 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
+
 <body class="module-page">
   <!-- Header with navigation -->
   <header class="module-header">
     <div class="container">
       <nav class="module-nav">
         <a href="../proveedores.html" class="back-link">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="margin-right: 0.5rem; vertical-align: middle;">
-            <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.42-1.41L7.83 13H20v-2z"/>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"
+            style="margin-right: 0.5rem; vertical-align: middle;">
+            <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.42-1.41L7.83 13H20v-2z" />
           </svg>
           Volver a Proveedores
         </a>
         <div class="module-status">
           <span class="status-badge active">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="#28A745">
-              <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+              <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
             </svg>
             Base de Datos
           </span>
@@ -36,362 +39,344 @@
   <div class="container">
     <!-- Hero Section -->
     <section class="module-hero">
-    <div class="hero-content">
-      <div class="hero-text">
-        <h1 class="module-title">Base de Datos • Proveedores</h1>
-        <p class="module-description">Diseño y estructura de la base de datos del subsistema de proveedores</p>
-        <div class="hero-stats">
-          <div class="stat-item">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <ellipse cx="12" cy="5" rx="9" ry="3"/>
-              <path d="m3 5 0 14c0 1.7 4 3 9 3s9-1.3 9-3V5"/>
-              <path d="m3 12c0 1.7 4 3 9 3s9-1.3 9-3"/>
-            </svg>
-            <span>2 Tablas</span>
-          </div>
-          <div class="stat-item">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/>
-              <rect x="8" y="2" width="8" height="4" rx="1" ry="1"/>
-            </svg>
-            <span>Relación N:M</span>
-          </div>
-          <div class="stat-item">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-              <circle cx="12" cy="10" r="3"/>
-            </svg>
-            <span>3 Tipos Entrega</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Main Content -->
-  <main class="module-content">
-    <!-- Database Design Section -->
-    <section class="content-section">
-      <div class="section-header">
-        <svg class="section-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <ellipse cx="12" cy="5" rx="9" ry="3"/>
-          <path d="m3 5 0 14c0 1.7 4 3 9 3s9-1.3 9-3V5"/>
-          <path d="m3 12c0 1.7 4 3 9 3s9-1.3 9-3"/>
-        </svg>
-        <h2>Diagrama de la Base de Datos</h2>
-      </div>
-      <div class="diagram-container">
-        <img src="../../assets/img/tabla_proveedores.png" alt="Diagrama de la tabla en la base de datos — Proveedores" class="database-diagram">
-      </div>
-    </section>
-
-    <!-- Architecture Description Section -->
-    <section class="content-section">
-      <div class="section-header">
-        <svg class="section-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-          <polyline points="14,2 14,8 20,8"/>
-          <line x1="16" y1="13" x2="8" y2="13"/>
-          <line x1="16" y1="17" x2="8" y2="17"/>
-          <polyline points="10,9 9,9 8,9"/>
-        </svg>
-        <h2>Arquitectura de la Base de Datos</h2>
-      </div>
-
-      <!-- Tabla Proveedor -->
-      <div class="table-info-card">
-        <div class="table-header">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/>
-            <rect x="8" y="2" width="8" height="4" rx="1" ry="1"/>
-          </svg>
-          <h3>Tabla Proveedor</h3>
-        </div>
-        
-        <div class="table-purpose">
-          <h4>Propósito</h4>
-          <p>Almacenar la información de proveedores de refacciones y servicios. Permite contacto confiable, validación de RFC y ubicación, y sirve de base para cotizaciones y compras.</p>
-        </div>
-
-        <div class="table-fields">
-          <h4>Campos</h4>
-          <div class="fields-grid">
-            <div class="field-item">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M9 12l2 2 4-4"/>
-                <circle cx="12" cy="12" r="10"/>
+      <div class="hero-content">
+        <div class="hero-text">
+          <h1 class="module-title">Base de Datos • Proveedores</h1>
+          <p class="module-description">Diseño y estructura de la base de datos del subsistema de proveedores</p>
+          <div class="hero-stats">
+            <div class="stat-item">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <ellipse cx="12" cy="5" rx="9" ry="3" />
+                <path d="m3 5 0 14c0 1.7 4 3 9 3s9-1.3 9-3V5" />
+                <path d="m3 12c0 1.7 4 3 9 3s9-1.3 9-3" />
               </svg>
-              <div>
-                <strong>Id_proveedor:</strong> Clave primaria
-              </div>
+              <span>2 Tablas</span>
             </div>
-            <div class="field-item">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
-                <circle cx="12" cy="7" r="4"/>
+            <div class="stat-item">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
+                <rect x="8" y="2" width="8" height="4" rx="1" ry="1" />
               </svg>
-              <div>
-                <strong>primer_nombre, segundo_nombre, ap_paterno, ap_materno:</strong> Identificación formal del proveedor o representante
-              </div>
+              <span>Relación N:M</span>
             </div>
-            <div class="field-item">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
-                <line x1="2" y1="9" x2="22" y2="9"/>
+            <div class="stat-item">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                <circle cx="12" cy="10" r="3" />
               </svg>
-              <div>
-                <strong>RFC:</strong> Identificador fiscal (único si se captura)
-              </div>
+              <span>3 Tipos Entrega</span>
             </div>
-            <div class="field-item">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <rect x="3" y="4" width="18" height="16" rx="2"/>
-                <line x1="3" y1="10" x2="21" y2="10"/>
-              </svg>
-              <div>
-                <strong>fecha_nac, sexo, nacionalidad:</strong> Datos opcionales del representante
-              </div>
-            </div>
-            <div class="field-item">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-                <circle cx="12" cy="10" r="3"/>
-              </svg>
-              <div>
-                <strong>pais, estado, municipio, colonia, calle, no_exterior, no_interior:</strong> Domicilio completo
-              </div>
-            </div>
-            <div class="field-item">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-              </svg>
-              <div>
-                <strong>telefono:</strong> Información de contacto
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Tabla ProveedorItem -->
-      <div class="table-info-card">
-        <div class="table-header">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2-2z"/>
-            <path d="M8 21v-5a2 2 0 012-2h4a2 2 0 012 2v5"/>
-          </svg>
-          <h3>Tabla ProveedorItem</h3>
-        </div>
-        
-        <div class="table-purpose">
-          <h4>Propósito</h4>
-          <p>Gestionar qué ítems del catálogo ofrece cada proveedor y en qué condiciones (precio, tipo y tiempo de entrega).</p>
-        </div>
-
-        <div class="table-fields">
-          <h4>Campos</h4>
-          <div class="fields-grid">
-            <div class="field-item">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/>
-                <rect x="8" y="2" width="8" height="4" rx="1" ry="1"/>
-              </svg>
-              <div>
-                <strong>Id_proveedor:</strong> FK a Proveedor
-              </div>
-            </div>
-            <div class="field-item">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2-2z"/>
-                <path d="M8 21v-5a2 2 0 012-2h4a2 2 0 012 2v5"/>
-              </svg>
-              <div>
-                <strong>Id_item:</strong> FK a CatalogoItem (SKU: <code>SRV-*</code>, <code>REF-*</code>)
-              </div>
-            </div>
-            <div class="field-item">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <line x1="12" y1="1" x2="12" y2="23"/>
-                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
-              </svg>
-              <div>
-                <strong>precio_unitario:</strong> Precio ofertado por el proveedor
-              </div>
-            </div>
-            <div class="field-item">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-                <circle cx="12" cy="10" r="3"/>
-              </svg>
-              <div>
-                <strong>tipo_entrega:</strong> local/mensajeria/foraneo
-              </div>
-            </div>
-            <div class="field-item">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <circle cx="12" cy="12" r="10"/>
-                <polyline points="12,6 12,12 16,14"/>
-              </svg>
-              <div>
-                <strong>tiempo_entrega_dias:</strong> Días estimados de entrega
-              </div>
-            </div>
-            <div class="field-item">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                <polyline points="14,2 14,8 20,8"/>
-                <line x1="16" y1="13" x2="8" y2="13"/>
-                <line x1="16" y1="17" x2="8" y2="17"/>
-              </svg>
-              <div>
-                <strong>notas:</strong> Observaciones adicionales
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="info-box">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <circle cx="12" cy="12" r="10"/>
-          <line x1="12" y1="16" x2="12" y2="12"/>
-          <line x1="12" y1="8" x2="12.01" y2="8"/>
-        </svg>
-        <p><strong>Relación N:M:</strong> Separar proveedor de los ítems evita duplicidad y permite múltiples proveedores por ítem y múltiples ítems por proveedor.</p>
-      </div>
-
-      <div class="normalization-section">
-        <h3>
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-          </svg>
-          Normalización de la Base de Datos
-        </h3>
-        <div class="normalization-grid">
-          <div class="norm-card">
-            <h4>1NF</h4>
-            <p>Datos atómicos; cada fila representa un proveedor o una relación proveedor–ítem. Sin campos multivaluados.</p>
-          </div>
-          <div class="norm-card">
-            <h4>2NF</h4>
-            <p>En <em>ProveedorItem</em> la PK compuesta (Id_proveedor, Id_item) determina totalmente el resto de atributos (precio, entrega).</p>
-          </div>
-          <div class="norm-card">
-            <h4>3NF</h4>
-            <p>No hay dependencias transitivas: atributos como <em>precio_unitario</em> no dependen de otros no clave.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- SQL Code Section -->
-    <section class="content-section">
-      <div class="section-header">
-        <svg class="section-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <polyline points="16 18 22 12 16 6"/>
-          <polyline points="8 6 2 12 8 18"/>
-        </svg>
-        <h2>Código SQL para Crear Tablas</h2>
-      </div>
-      <div class="code-container">
-        <div class="code-header">
-          <span class="code-language">SQL</span>
-          <span class="code-title">Creación de tablas Proveedor y ProveedorItem</span>
+    <!-- Main Content -->
+    <main class="module-content">
+      <!-- Database Design Section -->
+      <section class="content-section">
+        <div class="section-header">
+          <svg class="section-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2">
+            <ellipse cx="12" cy="5" rx="9" ry="3" />
+            <path d="m3 5 0 14c0 1.7 4 3 9 3s9-1.3 9-3V5" />
+            <path d="m3 12c0 1.7 4 3 9 3s9-1.3 9-3" />
+          </svg>
+          <h2>Diagrama de la Base de Datos</h2>
         </div>
-        <pre><code>-- Base de datos
+        <div class="diagram-container">
+          <img src="../../assets/img/tabla_proveedores.png" alt="Diagrama de la tabla en la base de datos — Proveedores"
+            class="database-diagram">
+        </div>
+      </section>
 
-USE TallerLaptopsDB;
+      <!-- Architecture Description Section -->
+      <section class="content-section">
+        <div class="section-header">
+          <svg class="section-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+            <polyline points="14,2 14,8 20,8" />
+            <line x1="16" y1="13" x2="8" y2="13" />
+            <line x1="16" y1="17" x2="8" y2="17" />
+            <polyline points="10,9 9,9 8,9" />
+          </svg>
+          <h2>Arquitectura de la Base de Datos</h2>
+          <p>El módulo se compone de tablas principales, tablas de subtipo y catálogos de apoyo para garantizar la
+            normalización y flexibilidad.</p>
+        </div>
+
+        <div class="table-info-card">
+          <div class="table-header">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
+              <rect x="8" y="2" width="8" height="4" rx="1" ry="1" />
+            </svg>
+            <h3>Tabla Proveedor (Tabla Base)</h3>
+          </div>
+          <div class="table-purpose">
+            <h4>Propósito</h4>
+            <p>Almacenar la información común y compartida para todos los proveedores, como RFC, contacto y dirección.
+              Actúa como la tabla padre para los distintos tipos de proveedor.</p>
+          </div>
+          <div class="table-fields">
+            <h4>Campos Clave</h4>
+            <div class="fields-grid">
+              <div class="field-item"><strong>Id_proveedor:</strong> PK única para cada proveedor.</div>
+              <div class="field-item"><strong>Id_tipo_proveedor:</strong> FK que indica si es 'Persona Física' o
+                'Empresa'.</div>
+              <div class="field-item"><strong>RFC:</strong> Identificador fiscal único y opcional.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="support-tables-grid">
+          <div class="table-info-card small">
+            <div class="table-header">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                <circle cx="12" cy="7" r="4" />
+              </svg>
+              <h3>Tabla ProveedorPersonaFisica</h3>
+            </div>
+            <div class="table-purpose">
+              <p><strong>(Subtipo)</strong> Almacena datos exclusivos de proveedores que son personas físicas.</p>
+            </div>
+            <div class="table-fields">
+              <h4>Campos</h4>
+              <div class="fields-grid small-grid">
+                <div class="field-item"><strong>Id_proveedor:</strong> PK y FK que la conecta a la tabla `Proveedor`.
+                </div>
+                <div class="field-item"><strong>primer_nombre, ap_paterno:</strong> Nombre completo.</div>
+              </div>
+            </div>
+          </div>
+          <div class="table-info-card small">
+            <div class="table-header">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2z" />
+              </svg>
+              <h3>Tabla ProveedorPersonaMoral</h3>
+            </div>
+            <div class="table-purpose">
+              <p><strong>(Subtipo)</strong> Almacena datos exclusivos de proveedores que son empresas.</p>
+            </div>
+            <div class="table-fields">
+              <h4>Campos</h4>
+              <div class="fields-grid small-grid">
+                <div class="field-item"><strong>Id_proveedor:</strong> PK y FK que la conecta a la tabla `Proveedor`.
+                </div>
+                <div class="field-item"><strong>razon_social:</strong> Nombre legal de la empresa.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="table-info-card">
+          <div class="table-header">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.72" />
+              <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.72-1.72" />
+            </svg>
+            <h3>Tabla ProveedorItem (Tabla de Unión)</h3>
+          </div>
+          <div class="table-purpose">
+            <h4>Propósito</h4>
+            <p>Gestionar la relación muchos-a-muchos (N:M) entre proveedores e ítems. Define qué producto ofrece cada
+              proveedor y bajo qué condiciones comerciales.</p>
+          </div>
+          <div class="table-fields">
+            <h4>Campos</h4>
+            <div class="fields-grid">
+              <div class="field-item">
+                <strong>Id_proveedor:</strong> Clave foránea (FK) que conecta con la tabla `Proveedor`.
+              </div>
+              <div class="field-item">
+                <strong>Id_item:</strong> Clave foránea (FK) que conecta con la tabla `CatalogoItem`.
+              </div>
+              <div class="field-item">
+                <strong>precio_unitario:</strong> Precio de compra específico que ofrece este proveedor por este ítem.
+              </div>
+              <div class="field-item">
+                <strong>Id_tipo_entrega:</strong> FK que indica el método de entrega (ej. 'Local', 'Mensajería').
+              </div>
+              <div class="field-item">
+                <strong>tiempo_entrega_dias:</strong> Días estimados que tarda el proveedor en surtir el ítem.
+              </div>
+              <div class="field-item">
+                <strong>notas:</strong> Observaciones adicionales sobre la compra (ej. 'Compra mínima 5 pzs').
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-subheader">
+          <h4>Catálogos de Apoyo y Tablas Geográficas</h4>
+          <p>Estas tablas normalizan la información, evitan la redundancia y aseguran la consistencia de los datos en
+            todo el módulo.</p>
+        </div>
+
+        <div class="support-tables-grid">
+          <div class="table-info-card small">
+            <div class="table-header">
+              <h3>Tabla ProveedorTipo</h3>
+            </div>
+            <div class="table-purpose">
+              <p>Clasifica a los proveedores para distinguir entre 'Persona Física' y 'Empresa'.</p>
+            </div>
+            <div class="table-fields">
+              <h4>Campos</h4>
+              <div class="fields-grid small-grid">
+                <div class="field-item"><strong>Id_tipo_proveedor:</strong> PK</div>
+                <div class="field-item"><strong>nombre:</strong> Descripción del tipo.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="table-info-card small">
+            <div class="table-header">
+              <h3>Tabla EntregaTipo</h3>
+            </div>
+            <div class="table-purpose">
+              <p>Estandariza los métodos de entrega disponibles (ej. 'Local', 'Mensajería').</p>
+            </div>
+            <div class="table-fields">
+              <h4>Campos</h4>
+              <div class="fields-grid small-grid">
+                <div class="field-item"><strong>Id_tipo_entrega:</strong> PK</div>
+                <div class="field-item"><strong>nombre:</strong> Descripción del tipo.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="support-tables-grid">
+          <div class="table-info-card small">
+            <div class="table-header">
+              <h3>Tabla Pais</h3>
+            </div>
+            <div class="table-purpose">
+              <p>Catálogo para almacenar los países.</p>
+            </div>
+            <div class="table-fields">
+              <h4>Campos</h4>
+              <div class="fields-grid small-grid">
+                <div class="field-item"><strong>Id_pais:</strong> PK</div>
+                <div class="field-item"><strong>nombre:</strong> Nombre del país.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="table-info-card small">
+            <div class="table-header">
+              <h3>Tabla Estado</h3>
+            </div>
+            <div class="table-purpose">
+              <p>Catálogo para los estados, vinculados a un país.</p>
+            </div>
+            <div class="table-fields">
+              <h4>Campos</h4>
+              <div class="fields-grid small-grid">
+                <div class="field-item"><strong>Id_estado:</strong> PK</div>
+                <div class="field-item"><strong>Id_pais:</strong> FK a la tabla `Pais`.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="table-info-card small">
+            <div class="table-header">
+              <h3>Tabla Municipio</h3>
+            </div>
+            <div class="table-purpose">
+              <p>Catálogo para los municipios, vinculados a un estado.</p>
+            </div>
+            <div class="table-fields">
+              <h4>Campos</h4>
+              <div class="fields-grid small-grid">
+                <div class="field-item"><strong>Id_municipio:</strong> PK</div>
+                <div class="field-item"><strong>Id_estado:</strong> FK a la tabla `Estado`.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="normalization-section">
+          <h3>Normalización de la Base de Datos</h3>
+          <div class="normalization-grid">
+            <div class="norm-card">
+              <h4>1NF</h4>
+              <p>Todos los atributos son atómicos y cada registro es único.</p>
+            </div>
+            <div class="norm-card">
+              <h4>2NF</h4>
+              <p>Se cumple al no tener dependencias parciales en tablas con claves compuestas como `ProveedorItem`.</p>
+            </div>
+            <div class="norm-card">
+              <h4>3NF</h4>
+              <p>Se eliminan dependencias transitivas al separar los datos de personas y empresas, y al usar catálogos
+                (`ProveedorTipo`, `EntregaTipo`) para evitar redundancia.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-section">
+        <div class="section-header">
+          <svg class="section-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2">
+            <polyline points="16 18 22 12 16 6" />
+            <polyline points="8 6 2 12 8 18" />
+          </svg>
+          <h2>Código SQL para Crear Tablas</h2>
+        </div>
+        <div class="code-container">
+          <div class="code-header">
+            <span class="code-language">SQL</span>
+            <span class="code-title">Creación de tablas del módulo Proveedores</span>
+          </div>
+          <pre><code>-- Tablas de catálogo
+CREATE TABLE dbo.ProveedorTipo (
+    Id_tipo_proveedor TINYINT IDENTITY(1,1) PRIMARY KEY,
+    nombre            NVARCHAR(50) NOT NULL UNIQUE
+);
+CREATE TABLE dbo.EntregaTipo (
+    Id_tipo_entrega TINYINT IDENTITY(1,1) PRIMARY KEY,
+    nombre          NVARCHAR(50) NOT NULL UNIQUE
+);
 GO
-
--- Proveedor
-IF OBJECT_ID('dbo.Proveedor','U') IS NULL
-BEGIN
-  CREATE TABLE dbo.Proveedor (
-    Id_proveedor   INT IDENTITY(1,1) NOT NULL,
-    primer_nombre  VARCHAR(60)  NOT NULL,
-    segundo_nombre VARCHAR(60)  NULL,
-    ap_paterno     VARCHAR(60)  NOT NULL,
-    ap_materno     VARCHAR(60)  NULL,
-    RFC            VARCHAR(13)  NULL,
-    fecha_nac      DATE         NULL,
-    sexo           VARCHAR(20)  NULL,
-    nacionalidad   VARCHAR(40)  NULL,
-    pais           VARCHAR(60)  NULL,
-    estado         VARCHAR(60)  NULL,
-    municipio      VARCHAR(60)  NULL,
-    colonia        VARCHAR(80)  NULL,
-    calle          VARCHAR(120) NULL,
-    no_exterior    VARCHAR(20)  NULL,
-    no_interior    VARCHAR(20)  NULL,
-    telefono       VARCHAR(20)  NULL,
-    CONSTRAINT PK_Proveedor PRIMARY KEY (Id_proveedor),
-    CONSTRAINT CHK_Proveedor_sexo CHECK (sexo IN ('hombre','mujer','prefiero no decirlo'))
-  );
-  -- RFC único si se captura
-  CREATE UNIQUE INDEX UQ_Proveedor_RFC ON dbo.Proveedor(RFC) WHERE RFC IS NOT NULL;
-END
+-- Tabla base
+CREATE TABLE dbo.Proveedor (
+    Id_proveedor        INT IDENTITY(1,1) PRIMARY KEY,
+    Id_tipo_proveedor   TINYINT NOT NULL REFERENCES dbo.ProveedorTipo(Id_tipo_proveedor),
+    RFC                 VARCHAR(13) NULL UNIQUE,
+    telefono            VARCHAR(25) NULL,
+    Id_municipio        INT NULL -- FK a tabla geográfica
+);
 GO
-
--- ProveedorItem (N:M con condiciones)
-IF OBJECT_ID('dbo.ProveedorItem','U') IS NULL
-BEGIN
-  CREATE TABLE dbo.ProveedorItem (
-    Id_proveedor        INT         NOT NULL,
-    Id_item             VARCHAR(20) NOT NULL,
+-- Tablas de subtipo
+CREATE TABLE dbo.ProveedorPersonaFisica (
+    Id_proveedor    INT PRIMARY KEY REFERENCES dbo.Proveedor(Id_proveedor) ON DELETE CASCADE,
+    primer_nombre   NVARCHAR(60) NOT NULL,
+    ap_paterno      NVARCHAR(60) NOT NULL
+);
+CREATE TABLE dbo.ProveedorPersonaMoral (
+    Id_proveedor    INT PRIMARY KEY REFERENCES dbo.Proveedor(Id_proveedor) ON DELETE CASCADE,
+    razon_social    NVARCHAR(200) NOT NULL
+);
+GO
+-- Tabla de unión
+CREATE TABLE dbo.ProveedorItem (
+    Id_proveedor        INT NOT NULL REFERENCES dbo.Proveedor(Id_proveedor),
+    Id_item             VARCHAR(20) NOT NULL REFERENCES dbo.CatalogoItem(Id_item),
     precio_unitario     DECIMAL(12,2) NOT NULL,
-    tipo_entrega        VARCHAR(20) NOT NULL, -- local/mensajeria/foraneo
+    Id_tipo_entrega     TINYINT NOT NULL REFERENCES dbo.EntregaTipo(Id_tipo_entrega),
     tiempo_entrega_dias INT NULL,
-    notas               VARCHAR(300) NULL,
-    CONSTRAINT PK_ProveedorItem PRIMARY KEY (Id_proveedor, Id_item),
-    CONSTRAINT FK_ProveedorItem_Prov FOREIGN KEY (Id_proveedor) REFERENCES dbo.Proveedor(Id_proveedor),
-    CONSTRAINT FK_ProveedorItem_Item FOREIGN KEY (Id_item) REFERENCES dbo.CatalogoItem(Id_item),
-    CONSTRAINT CHK_ProvItem_precio CHECK (precio_unitario >= 0),
-    CONSTRAINT CHK_ProvItem_tipoent CHECK (tipo_entrega IN ('local','mensajeria','foraneo')),
-    CONSTRAINT CHK_ProvItem_tiempo CHECK (tiempo_entrega_dias IS NULL OR tiempo_entrega_dias >= 0)
-  );
-END
+    PRIMARY KEY (Id_proveedor, Id_item)
+);
 GO</code></pre>
-      </div>
-    </section>
-
-    <!-- Sample Data Section -->
-    <section class="content-section">
-      <div class="section-header">
-        <svg class="section-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
-        </svg>
-        <h2>Datos de Ejemplo</h2>
-      </div>
-      
-      <div class="code-container">
-        <div class="code-header">
-          <span class="code-language">SQL</span>
-          <span class="code-title">Datos de ejemplo en Catálogo (mínimo para FK)</span>
         </div>
-        <pre><code>INSERT INTO dbo.CatalogoItem (Id_item, nombre_item, tipo, precio_item_unidad, descripcion) VALUES
-('REF-SSD-0001', 'SSD 1TB NVMe', 'refaccion', 1850.00, 'SSD PCIe 4.0'),
-('REF-RAM-0001', 'RAM 16GB DDR5', 'refaccion', 920.00, 'SO-DIMM 5600'),
-('SRV-MANT-0001', 'Mantenimiento preventivo', 'servicio', 450.00, 'Limpieza y pasta térmica');</code></pre>
-      </div>
-
-      <div class="code-container">
-        <div class="code-header">
-          <span class="code-language">SQL</span>
-          <span class="code-title">Proveedores e ítems que ofrece cada uno</span>
-        </div>
-        <pre><code>INSERT INTO dbo.Proveedor (primer_nombre, segundo_nombre, ap_paterno, ap_materno, RFC, telefono, pais, estado, municipio)
-VALUES
-('Luis','Alberto','Pérez','Soto','PESL800101AB1','555-123-4567','México','CDMX','Benito Juárez'),
-('María',NULL,'García','Ruiz','GARL900202CD2','555-987-6543','México','Jalisco','Guadalajara');
-
-INSERT INTO dbo.ProveedorItem (Id_proveedor, Id_item, precio_unitario, tipo_entrega, tiempo_entrega_dias, notas)
-VALUES
-(1,'REF-SSD-0001',1720.00,'mensajeria',3,'Precio por volumen > 5 pzs'),
-(1,'SRV-MANT-0001',400.00,'local',0,'Subcontrata servicio'),
-(2,'REF-RAM-0001',880.00,'foraneo',5,'Incluye envío terrestre');</code></pre>
-      </div>
-    </section>
-  </main>
-
+      </section>
+    </main>
 </body>
+
 </html>
