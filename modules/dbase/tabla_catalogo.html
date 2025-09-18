@@ -3,45 +3,207 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DB — Catálogo</title>
+  <title>Base de Datos • Catálogo | SGTL</title>
   <link rel="stylesheet" href="../../assets/css/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="module-page">
+  <!-- Header with navigation -->
+  <header class="module-header">
+    <div class="container">
+      <nav class="module-nav">
+        <a href="../catalogo.html" class="back-link">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="margin-right: 0.5rem; vertical-align: middle;">
+            <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.42-1.41L7.83 13H20v-2z"/>
+          </svg>
+          Volver a Catálogo
+        </a>
+        <div class="module-status">
+          <span class="status-badge active">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="#28A745">
+              <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+            </svg>
+            Base de Datos
+          </span>
+        </div>
+      </nav>
+    </div>
+  </header>
 
-  <a href="./../catalogo.html">[Catálogo]</a> ·
-  <a href="./../../index.html">[Principal]</a>
+  <!-- Main content -->
+  <div class="container">
+    <!-- Hero Section -->
+    <section class="module-hero">
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1 class="module-title">Base de Datos • Catálogo</h1>
+        <p class="module-description">Diseño y estructura de la base de datos del subsistema de catálogo</p>
+        <div class="hero-stats">
+          <div class="stat-item">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <ellipse cx="12" cy="5" rx="9" ry="3"/>
+              <path d="m3 5 0 14c0 1.7 4 3 9 3s9-1.3 9-3V5"/>
+              <path d="m3 12c0 1.7 4 3 9 3s9-1.3 9-3"/>
+            </svg>
+            <span>1 Tabla Principal</span>
+          </div>
+          <div class="stat-item">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M9 12l2 2 4-4"/>
+              <circle cx="12" cy="12" r="10"/>
+            </svg>
+            <span>5 Campos</span>
+          </div>
+          <div class="stat-item">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+            </svg>
+            <span>3NF Normalizada</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <h1>Diseño de la base de datos del subsistema</h1>
-  <br>
+  <!-- Main Content -->
+  <main class="module-content">
+    <!-- Database Design Section -->
+    <section class="content-section">
+      <div class="section-header">
+        <svg class="section-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <ellipse cx="12" cy="5" rx="9" ry="3"/>
+          <path d="m3 5 0 14c0 1.7 4 3 9 3s9-1.3 9-3V5"/>
+          <path d="m3 12c0 1.7 4 3 9 3s9-1.3 9-3"/>
+        </svg>
+        <h2>Diagrama de la Base de Datos</h2>
+      </div>
+      <div class="diagram-container">
+        <img src="../../assets/img/tabla_catalogo.png" alt="Diagrama de la tabla en la base de datos — Catálogo" class="database-diagram">
+      </div>
+    </section>
 
-  <h1>Diagrama de la tabla en la base de datos</h1>
-  <img src="../../assets/img/tabla_catalogo.png" alt="Diagrama de la tabla en la base de datos — Catálogo" width="800">
+    <!-- Architecture Description Section -->
+    <section class="content-section">
+      <div class="section-header">
+        <svg class="section-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+          <polyline points="14,2 14,8 20,8"/>
+          <line x1="16" y1="13" x2="8" y2="13"/>
+          <line x1="16" y1="17" x2="8" y2="17"/>
+          <polyline points="10,9 9,9 8,9"/>
+        </svg>
+        <h2>Arquitectura de la Base de Datos</h2>
+      </div>
 
-  <h1>Descripción de Pertinencia de la Arquitectura de la Base de Datos</h1>
+      <div class="table-info-card">
+        <div class="table-header">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="4" width="18" height="16" rx="2"/>
+            <path d="M7 8h10M7 12h10M7 16h10"/>
+          </svg>
+          <h3>Tabla CatalogoItem</h3>
+        </div>
+        
+        <div class="table-purpose">
+          <h4>Propósito</h4>
+          <p>Definir los ítems ofertados por el taller (servicios y refacciones) con su SKU, nombre, tipo, precio y descripción. El stock se controla en el módulo de Inventario.</p>
+        </div>
 
-  <h2>Tabla CatalogoItem</h2>
-  <h3>Propósito</h3>
-  <p>Definir los ítems ofertados por el taller (servicios y refacciones) con su SKU, nombre, tipo, precio y descripción. El stock se controla en el módulo de Inventario.</p>
-  <h3>Campos</h3>
-  <ul>
-    <li>Id_item: Clave primaria y SKU (p.ej. SRV-MANT-0001, REF-SSD-0001).</li>
-    <li>nombre_item: Nombre del ítem.</li>
-    <li>tipo: 'servicio' o 'refaccion'.</li>
-    <li>precio_item_unidad: Precio por unidad (MXN).</li>
-    <li>descripcion: Detalle del servicio/refacción.</li>
-  </ul>
+        <div class="table-fields">
+          <h4>Campos</h4>
+          <div class="fields-grid">
+            <div class="field-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M9 12l2 2 4-4"/>
+                <circle cx="12" cy="12" r="10"/>
+              </svg>
+              <div>
+                <strong>Id_item:</strong> Clave primaria y SKU (p.ej. SRV-MANT-0001, REF-SSD-0001)
+              </div>
+            </div>
+            <div class="field-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                <path d="M6.5 2H20v20l-5.5-9L20 4"/>
+              </svg>
+              <div>
+                <strong>nombre_item:</strong> Nombre del ítem
+              </div>
+            </div>
+            <div class="field-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/>
+                <rect x="8" y="2" width="8" height="4" rx="1" ry="1"/>
+              </svg>
+              <div>
+                <strong>tipo:</strong> 'servicio' o 'refaccion'
+              </div>
+            </div>
+            <div class="field-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="12" y1="1" x2="12" y2="23"/>
+                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+              </svg>
+              <div>
+                <strong>precio_item_unidad:</strong> Precio por unidad (MXN)
+              </div>
+            </div>
+            <div class="field-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                <polyline points="14,2 14,8 20,8"/>
+                <line x1="16" y1="13" x2="8" y2="13"/>
+                <line x1="16" y1="17" x2="8" y2="17"/>
+              </svg>
+              <div>
+                <strong>descripcion:</strong> Detalle del servicio/refacción
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
-  <h2>Normalización de la Base de Datos</h2>
-  <h3>1NF</h3>
-  <p>Cada ítem es una fila única con atributos atómicos.</p>
-  <h3>2NF</h3>
-  <p>Todos los atributos dependen de Id_item; no existe PK compuesta.</p>
-  <h3>3NF</h3>
-  <p>No hay dependencias transitivas entre atributos no clave.</p>
+      <div class="normalization-section">
+        <h3>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+          </svg>
+          Normalización de la Base de Datos
+        </h3>
+        <div class="normalization-grid">
+          <div class="norm-card">
+            <h4>1NF</h4>
+            <p>Cada ítem es una fila única con atributos atómicos.</p>
+          </div>
+          <div class="norm-card">
+            <h4>2NF</h4>
+            <p>Todos los atributos dependen de Id_item; no existe PK compuesta.</p>
+          </div>
+          <div class="norm-card">
+            <h4>3NF</h4>
+            <p>No hay dependencias transitivas entre atributos no clave.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <h1>Código SQL para crear tablas</h1>
-  <pre><code>
-USE TallerLaptopsDB;
+    <!-- SQL Code Section -->
+    <section class="content-section">
+      <div class="section-header">
+        <svg class="section-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="16 18 22 12 16 6"/>
+          <polyline points="8 6 2 12 8 18"/>
+        </svg>
+        <h2>Código SQL para Crear Tablas</h2>
+      </div>
+      <div class="code-container">
+        <div class="code-header">
+          <span class="code-language">SQL</span>
+          <span class="code-title">Creación de tabla CatalogoItem</span>
+        </div>
+        <pre><code>USE TallerLaptopsDB;
 GO
 
 IF OBJECT_ID('dbo.CatalogoItem','U') IS NOT NULL
@@ -58,17 +220,31 @@ CREATE TABLE dbo.CatalogoItem (
   CONSTRAINT CHK_CatalogoItem_tipo CHECK (tipo IN ('servicio','refaccion')),
   CONSTRAINT CHK_CatalogoItem_precio CHECK (precio_item_unidad >= 0)
 );
-GO
-  </code></pre>
+GO</code></pre>
+      </div>
+    </section>
 
-  <h1>Código SQL para agregar registros a las tablas</h1>
-  <pre><code>
-INSERT INTO dbo.CatalogoItem (Id_item, nombre_item, tipo, precio_item_unidad, descripcion) VALUES
+    <!-- Sample Data Section -->
+    <section class="content-section">
+      <div class="section-header">
+        <svg class="section-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+        </svg>
+        <h2>Datos de Ejemplo</h2>
+      </div>
+      <div class="code-container">
+        <div class="code-header">
+          <span class="code-language">SQL</span>
+          <span class="code-title">Inserción de registros de ejemplo</span>
+        </div>
+        <pre><code>INSERT INTO dbo.CatalogoItem (Id_item, nombre_item, tipo, precio_item_unidad, descripcion) VALUES
 ('SRV-MANT-0001','Mantenimiento preventivo','servicio',450.00,'Limpieza, pasta térmica, pruebas básicas'),
 ('SRV-SOFT-0001','Formateo e instalación de SO','servicio',600.00,'Instalación de Windows 11 + drivers'),
 ('REF-SSD-0001','SSD 1TB NVMe','refaccion',1850.00,'PCIe 4.0, lectura hasta 7,000 MB/s'),
-('REF-RAM-0001','RAM 16GB DDR5','refaccion',920.00,'SO-DIMM 5600 MT/s');
-  </code></pre>
-
+('REF-RAM-0001','RAM 16GB DDR5','refaccion',920.00,'SO-DIMM 5600 MT/s');</code></pre>
+      </div>
+    </section>
+  </main>
+  </div>
 </body>
 </html>
